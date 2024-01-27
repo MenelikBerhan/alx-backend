@@ -65,8 +65,8 @@ class Server:
         total_pages = data_size // page_size
         total_pages += 1 if data_size % page_size else 0
         next_page = page + 1 if page < total_pages else None
-    # prev_page = page - 1 if page > 1 and page <= total_pages + 1 else None
-        prev_page = page - 1 if page > 1 else None
+        prev_page = page - 1 if page > 1 and page <= total_pages + 1 else None
+        # prev_page = page - 1 if page > 1 else None
         return {
             'page_size': actual_page_size,
             'page': page,
