@@ -67,9 +67,9 @@ class Server:
         next_index = index if index <= max_index else None
         page_size = len(data)   # actual returned page size
 
-        return {
-            'index': start_index,
-            'next_index': next_index,
-            'page_size': page_size,
-            'data': data
-        }
+        # return {
+        #     'index': start_index,
+        #     'next_index': next_index,
+        #     'page_size': page_size,
+        #     'data': data
+        # }
