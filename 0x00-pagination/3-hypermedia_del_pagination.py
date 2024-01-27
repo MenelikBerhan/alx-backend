@@ -44,15 +44,17 @@ class Server:
         `index`: the index of the first item in the current page.
         `next_index`: the index of the first item in the next page.
         `page_size`: the current page size.
-        `data`: the actual page of the dataset."""
+        `data`: the actual page of the dataset. `page_size` no. of pages,
+            starting from `index` if it exists or next existing index."""
 
         indexed_data = self.indexed_dataset()
         max_index = max(indexed_data.keys())
         assert (type(index) == int and index <= max_index)
-        # start_index = index
+
         # move index to the next existing index that is in valid range (<= max)
         while (index not in indexed_data and index < max_index):
             index += 1
+
         data = []
         start_index = None
         # starting from index, append page_size no. of pages to data
@@ -64,12 +66,18 @@ class Server:
                     start_index = index
             index += 1
 
+        # move index to the next existing index after this page
+        while (index not in indexed_data and index < max_index):
+            index += 1
+
+        # set valid and existing start index for next page
         next_index = index if index <= max_index else None
+
         page_size = len(data)   # actual returned page size
 
-        # return {
-        #     'index': start_index,
-        #     'next_index': next_index,
-        #     'page_size': page_size,
-        #     'data': data
-        # }
+        return {
+            'index': start_index,
+            'next_index': next_index,
+            'page_size': page_size,
+            'data': data
+        }
