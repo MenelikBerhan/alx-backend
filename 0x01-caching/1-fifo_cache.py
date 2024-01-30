@@ -21,8 +21,10 @@ class FIFOCache(BaseCaching):
         If cache is full discards the first item put in cache."""
         if key is not None and item is not None:
             if key in self.queue:
+                # move key to end of queue
                 self.queue.remove(key)
             elif len(self.queue) == BaseCaching.MAX_ITEMS:
+                # discard first key in queue
                 discarded_key = self.queue.pop(0)
                 del self.cache_data[discarded_key]
                 print('DISCARD: {}'.format(discarded_key))
