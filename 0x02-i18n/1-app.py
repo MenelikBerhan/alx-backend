@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Basic Babel setup
 """
-from flask import Flask
+from flask import Flask, render_template
 from flask_babel import Babel
 
 app = Flask(__name__)
@@ -17,6 +17,12 @@ class Config():
 
 
 app.config.from_object(Config)
+
+
+@app.route('/')
+def index():
+    """Home page view"""
+    return render_template('0-index.html')
 
 
 if __name__ == "__main__":
