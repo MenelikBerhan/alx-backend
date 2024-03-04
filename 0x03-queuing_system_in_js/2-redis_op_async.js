@@ -12,13 +12,15 @@ client.on('error', (error) => {
 client.on('connect', () => {
   console.error('Redis client connected to the server');
 });
-const getAsync = promisify(client.get).bind(client);
 // sets value to key schoolName & display result
 function setNewSchool(schoolName, value) {
   client.set(schoolName, value, (err, reply) => {
     print(err, reply);
   });
 }
+
+// promisfy client.get
+const getAsync = promisify(client.get).bind(client);
 
 // finds value associated with key `schoolName`
 async function displaySchoolValue(schoolName) {
