@@ -1,6 +1,7 @@
 // connect to redis server
 import { createClient } from 'redis';
 
+// on redis.v>4 should call client.connect()
 const client = createClient();
 // set event handlers for `error` and `connect` events
 client.on('error', (error) => {
