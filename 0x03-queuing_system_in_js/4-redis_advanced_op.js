@@ -9,7 +9,7 @@ client.on('error', (error) => {
   console.error(`Redis client not connected to the server: ${error.message}`);
 });
 client.on('connect', () => {
-  console.error('Redis client connected to the server');
+  console.log('Redis client connected to the server');
 });
 
 // field value paris to save in hash
@@ -29,6 +29,6 @@ Object.keys(hashObject).forEach((key) => {
 
 // get hash value
 client.hgetall('HolbertonSchools', (err, reply) => {
-  if (err) console.log(err.message);
+  if (err) console.error(err.message);
   else console.log(reply);
 });

@@ -8,7 +8,7 @@ client.on('error', (error) => {
   console.error(`Redis client not connected to the server: ${error.message}`);
 });
 client.on('connect', () => {
-  console.error('Redis client connected to the server');
+  console.log('Redis client connected to the server');
 });
 
 // sets value to key schoolName & display result
@@ -21,7 +21,7 @@ function setNewSchool(schoolName, value) {
 // finds value associated with key `schoolName`
 function displaySchoolValue(schoolName) {
   client.get(schoolName, (err, reply) => {
-    if (err) console.log(err.message);
+    if (err) console.error(err.message);
     else console.log(reply);
   });
 }

@@ -10,7 +10,7 @@ client.on('error', (error) => {
   console.error(`Redis client not connected to the server: ${error.message}`);
 });
 client.on('connect', () => {
-  console.error('Redis client connected to the server');
+  console.log('Redis client connected to the server');
 });
 
 // sets value to key schoolName & display result
@@ -25,7 +25,8 @@ const getAsync = promisify(client.get).bind(client);
 
 // finds value associated with key `schoolName`
 async function displaySchoolValue(schoolName) {
-  const reply = await getAsync(schoolName);
+  const reply = await getAsync(schoolName)
+    .catch((err) => { console.error(err.message); });
   console.log(reply);
   // OR
   // getAsync(schoolName)
