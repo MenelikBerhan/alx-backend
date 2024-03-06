@@ -18,7 +18,7 @@ function sendNotification(phoneNumber, message, job, done) {
 }
 
 const queue = createQueue();
-
+// process 2 jobs of type 'push_notification_code_2' at a time
 queue.process('push_notification_code_2', 2, (job, done) => {
   sendNotification(job.data.phoneNumber, job.data.message, job, done);
 });
