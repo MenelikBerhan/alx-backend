@@ -19,12 +19,11 @@ describe('createPushNotificationsJobs', function () {
     queue.testMode.exit();
   });
 
-  it('Throws Error with right message when jobs is not an array', function (done) {
+  it('Throws Error with right message when jobs is not an array', function () {
     // expect(fn).to.throw();     // Good! Tests `fn` as desired
     // expect(fn(42)).to.throw();   // Bad! Tests result of `fn()`, not `fn`
     // expect(() => fn(42)).to.throw();  // Good!
     expect(() => createPushNotificationsJobs(12, queue)).to.throw('Jobs is not an array');
-    done();
   });
 
   it('Creates two new jobs with correct type & data, and logs right message.', function () {
