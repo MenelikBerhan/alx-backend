@@ -3,6 +3,7 @@ module.exports = {
   env: {
     browser: false,
     es6: true,
+    mocha: true,
     // jest: true,
   },
   extends: [
@@ -28,6 +29,9 @@ module.exports = {
       'LabeledStatement',
       'WithStatement',
     ],
+    'func-names': 'off',
+    'prefer-arrow-callback': 'off',
+    'no-unused-expressions': 'off',
   },
   overrides:[
     {
