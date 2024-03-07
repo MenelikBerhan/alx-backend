@@ -1,3 +1,4 @@
+// Use redis and Kue with web server created using express
 import express from 'express';
 import { createClient } from 'redis';
 import { promisify } from 'util';
