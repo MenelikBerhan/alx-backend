@@ -32,6 +32,7 @@ module.exports = {
     'func-names': 'off',
     'prefer-arrow-callback': 'off',
     'no-unused-expressions': 'off',
+    'object-curly-newline': 'off',
   },
   overrides:[
     {
